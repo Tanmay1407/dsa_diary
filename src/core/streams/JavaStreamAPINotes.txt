@@ -1,0 +1,17 @@
+Java 8
+- minimal code & function programming
+- Streams
+- Lambda Expression
+- Date & Time API etc.
+
+Lambda Expressions:
+- are anonymous functions without name, return type & access modifier
+
+Streams:
+- Process collection of data in a functional & declarative manner
+- Simplify data processing
+- Embrace Functional Programming
+- Improve Code Readability & Maintainability
+- Enable Easy Parallelism
+
+- Working: Input/Source -> Intermediate Operations -> Terminal Operation -> Output

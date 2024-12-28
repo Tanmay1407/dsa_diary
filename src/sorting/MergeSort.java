@@ -1,36 +1,42 @@
 package sorting;
 
+/*
+Time Complexity:
+Best: O(n*logn) : when already sorted
+Avg: O(n*logn) : when jumbled in random order
+Worst:  O(n*logn) : sorted in dec order (if sorting in ascending order)
+
+Space Complexity: O(n) : variable required for swaping
+*/
 public class MergeSort {
     public static void main(String[] args) {
-        int[] arr = {6,5,4,4,2,1,3,2,1,0,9};
-        mergeSort(arr,0, arr.length-1);
-        printArr(arr);
+        int[] nums = {-6,5,4,3,2,1,9,-5};
+        mergeSort(0,nums.length-1,nums);
+        for(int n : nums) System.out.print(n+" ");
     }
 
-    public static void mergeSort(int[] nums,int begin,int end){
+    public static  void mergeSort(int begin, int end, int[] nums){
         if(begin < end){
             int mid = begin + (end-begin)/2;
-            mergeSort(nums,begin,mid);
-            mergeSort(nums,mid+1,end);
-            merge(nums,begin,mid,end);
+            mergeSort(begin,mid,nums);
+            mergeSort(mid+1,end,nums);
+            merge(begin,mid,end,nums);
         }
     }
 
-    public static void merge(int[] nums, int begin, int mid, int end){
-        int[] merged = new int[end - begin + 1];
-        int k = 0;
-        int i = begin, j = mid+1;
-        while (i <= mid && j <= end){
-            if(nums[i] < nums[j]) merged[k++] = nums[i++];
-            else merged[k++] = nums[j++];
+    public static  void merge(int begin, int mid, int end, int[] nums){
+        int i = begin, j = mid+1, k = 0;
+        int[] tempNums = new int[end-begin+1];
+        while(i <= mid && j <= end){
+            if(nums[i] <= nums[j]) {
+                tempNums[k++] = nums[i++];
+            }else{
+                tempNums[k++] = nums[j++];
+            }
         }
-        while (i <= mid) merged[k++] = nums[i++];
-        while (j <= end) merged[k++] = nums[j++];
-        System.arraycopy(merged, 0, nums, begin, merged.length);
-    }
+        while(i <= mid) tempNums[k++] = nums[i++];
+        while(j <= end) tempNums[k++] = nums[j++];
 
-    public static void printArr(int nums[]){
-        System.out.println();
-        for(int n : nums) System.out.print(n+" ");
+        System.arraycopy(tempNums,0,nums,begin,k);
     }
 }
