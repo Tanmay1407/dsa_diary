@@ -1,0 +1,20 @@
+#Mutli-Threading:
+    - Multithreading enhances the capabilities of Multi-Tasking by breaking down individual tasks
+      into smaller sub-tasks or threads. These threads can be processed simultaneously, making better
+      use of CPU capabilities.
+
+    - In Java Multithreading is the concurrent execution of two or more threads to maximise utilisation of
+      CPU. This multithreading capabilities are the part of java.lang package, making it easy to implement
+      concurrent execution.
+
+     - In single-core environments, multi-threading in managed by JVM and OS, which switch between the threads to give
+       an illusion of concurrency. Threads share a single core and time-slicing is used to manage thread execution.
+
+     - In multi-core environment, JVM can distribute threads across multiple cores allowing true parallel execution of
+       threads.
+
+     - Thread is light-weight process, the smallest unit of processing. Java supports multi-threading through it's
+       java.lang.Thread class & the java.lang.Runnable interface.
+
+     - When a Java Program starts, one thread begins running immediately which is called the Main Thread. This thread is
+       responsible for executing the main method of a program.
